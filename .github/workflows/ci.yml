@@ -42,16 +42,34 @@ jobs:
         if: failure()
         run: |
           if [ -f build-output.txt ]; then
-            grep -nE "(^e: |error:|FAILURE:|Caused by:|What went wrong|Execution failed for task|> Task .* FAILED)" build-output.txt | head -40 | while IFS= read -r line; do
-              echo "::error::${line:0:400}"
-            done
-            echo "----- last 40 lines -----"
-            tail -40 build-output.txt | while IFS= read -r line; do
+            grep -nE "(^e: |error:|FAILURE:|Caused by:|What went wrong|Execution failed for task|> Task .* FAILED| FAILED$|[0-9]+ tests? completed)" build-output.txt | head -40 | while IFS= read -r line; do
               echo "::error::${line:0:400}"
             done
           else
             echo "::error::gradle produced no output file (early failure)"
           fi
+
+      # Emit one annotation per failing unit test with its assertion message.
+      - name: Report failing tests in detail
+        if: failure()
+        run: |
+          python3 - <<'EOF'
+          import glob, xml.etree.ElementTree as ET
+          paths = glob.glob('app/build/test-results/testDebugUnitTest/*.xml')
+          if not paths:
+              print("::error::no unit-test result XML found")
+          for path in paths:
+              try:
+                  root = ET.parse(path).getroot()
+              except Exception:
+                  continue
+              for case in root.iter('testcase'):
+                  for failure in list(case.findall('failure')) + list(case.findall('error')):
+                      name = f"{case.get('classname')}.{case.get('name')}"
+                      msg = (failure.get('message') or failure.text or 'no message').strip()
+                      first = msg.splitlines()[0][:350] if msg else 'no message'
+                      print(f"::error::{name} :: {first}")
+          EOF
 
       - name: Upload test & lint reports
         if: always()
