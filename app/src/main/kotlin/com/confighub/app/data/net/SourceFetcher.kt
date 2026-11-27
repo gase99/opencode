@@ -71,7 +71,8 @@ class SourceFetcher @Inject constructor(
         if (declaredLength > maxBytes) {
             return Outcome.Failure("payload too large: $declaredLength bytes (cap $maxBytes)")
         }
-        val buffer = ByteArrayOutputStream(minOf(declaredLength, MAX_BUFFER_INIT.toLong()).coerceAtLeast(0L))
+        val initialSize = if (declaredLength in 1..MAX_BUFFER_INIT) declaredLength.toInt() else MAX_BUFFER_INIT
+        val buffer = ByteArrayOutputStream(initialSize)
         var total = 0
         body.byteStream().use { input ->
             val chunk = ByteArray(8192)

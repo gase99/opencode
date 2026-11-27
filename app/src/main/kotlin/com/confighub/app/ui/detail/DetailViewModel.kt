@@ -26,6 +26,7 @@ import kotlinx.coroutines.launch
 class DetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val configRepository: ConfigRepository,
+    private val sourceRepository: SourceRepository,
     private val healthRepository: HealthRepository,
     private val settingsRepository: SettingsRepository,
     private val operatorDetector: OperatorDetector,
