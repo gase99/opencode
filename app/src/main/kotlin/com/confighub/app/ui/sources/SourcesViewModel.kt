@@ -86,7 +86,7 @@ class SourcesViewModel @Inject constructor(
     }
 
     fun setEnabled(id: Long, enabled: Boolean) {
-        viewModelScope.launch { sourceRepository.setEnabled(id, enabled) }
+        viewModelScope.launch { sourceRepository.setSourceEnabled(id, enabled) }
     }
 
     fun refreshNow(source: SourceEntity) {
@@ -119,7 +119,7 @@ class SourcesViewModel @Inject constructor(
                     )
                     result.getOrNull()?.let { created ->
                         // Samples stay DISABLED until the user replaces the URL & enables them.
-                        sourceRepository.setEnabled(created.id, enabled = false)
+                        sourceRepository.setSourceEnabled(created.id, enabled = false)
                     }
                 }
             } finally {
