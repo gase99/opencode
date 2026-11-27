@@ -44,16 +44,16 @@ class ScoreEngineTest {
     fun `weights are normalized`() {
         val result = ScoreEngine.score(
             input = ScoreEngine.Input(
-                tcpMeanMs = 100L,
-                jitterMs = 5L,
+                // 50 ms latency + 0 ms jitter + perfect history → all used components = 100
+                tcpMeanMs = 50L,
+                jitterMs = 0L,
                 lastProbeOk = true,
                 successRate = 1.0f,
-                hoursSinceLastSuccess = 1.0,
+                hoursSinceLastSuccess = 0.0,
                 protocol = Protocol.VLESS,
             ),
             weights = ScoreEngine.Weights(latency = 2f, jitter = 1f, failure = 1f, recency = 0f, protocol = 0f),
         )
-        // All components perfect with zero-weight remainder → 100.
         assertThat(result.total).isEqualTo(100)
         val weightSum = result.components.sumOf { it.weight }
         assertThat(weightSum).isWithin(0.001).of(4.0)

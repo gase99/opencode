@@ -75,6 +75,9 @@ android {
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
+            // android.util.Log (SafeLog) is a no-op in plain JVM tests; real behavior
+            // is covered by Robolectric tests.
+            isReturnDefaultValues = true
             all { test ->
                 test.maxHeapSize = "2g"
             }

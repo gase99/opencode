@@ -68,6 +68,10 @@ object V2rayJsonOutboundParser : LinkParser {
                 }
             },
             fingerprint = stream?.tlsOrRealitySetting()?.let { it.optString("fingerprint") },
+            wsPath = (stream?.get("wsSettings") as? JsonObject)?.optString("path"),
+            wsHost = ((stream?.get("wsSettings") as? JsonObject)
+                ?.get("headers") as? JsonObject)?.optString("Host"),
+            grpcServiceName = (stream?.get("grpcSettings") as? JsonObject)?.optString("serviceName"),
             publicKey = (stream?.get("realitySettings") as? JsonObject)?.optString("publicKey"),
             shortId = (stream?.get("realitySettings") as? JsonObject)?.optString("shortId"),
             name = tag,

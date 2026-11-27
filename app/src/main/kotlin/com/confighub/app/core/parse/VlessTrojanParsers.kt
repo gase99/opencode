@@ -16,6 +16,7 @@ object VlessLinkParser : LinkParser {
         if (!candidate.lowercase().startsWith("vless://")) return null
         val parts = UriParts.parse(candidate) ?: return null
         val uuid = parts.userinfo?.trim() ?: return null
+        if (uuid.isBlank()) return null
 
         return ConfigProfile(
             protocol = Protocol.VLESS,
@@ -56,6 +57,7 @@ object TrojanLinkParser : LinkParser {
         if (!candidate.lowercase().startsWith("trojan://")) return null
         val parts = UriParts.parse(candidate) ?: return null
         val password = parts.userinfo?.trim() ?: return null
+        if (password.isBlank()) return null
 
         return ConfigProfile(
             protocol = Protocol.TROJAN,

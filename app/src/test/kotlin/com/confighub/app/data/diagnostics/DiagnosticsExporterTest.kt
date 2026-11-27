@@ -91,9 +91,10 @@ class DiagnosticsExporterTest {
 
         assertThat(report).contains("ConfigHub diagnostics")
         assertThat(report).contains("sub.example.com") // host survives redaction
-        assertThat(report).contains("node.example.com")
         assertThat(report).contains("VMESS")
 
+        // Config hosts are intentionally NOT included (privacy-by-default report).
+        assertThat(report.contains("node.example.com")).isFalse()
         // Secrets never appear.
         assertThat(report.contains(secretUuid)).isFalse()
         assertThat(report.contains(secretPassword)).isFalse()
