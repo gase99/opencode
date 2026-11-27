@@ -33,7 +33,9 @@ object DatabaseModule {
         val builder = Room.databaseBuilder(context, AppDatabase::class.java, "confighub.db")
         if (secretStore.secure) {
             runCatching { System.loadLibrary("sqlcipher") }.onSuccess {
-                builder.openHelperFactory(net.zetetic.database.sqlcipher.SupportFactory(secretStore.dbPassphrase()))
+                builder.openHelperFactory(
+                    net.zetetic.database.sqlcipher.SupportOpenHelperFactory(secretStore.dbPassphrase()),
+                )
             }
         }
         // If SQLCipher/Keystore is unavailable the DB falls back to unencrypted storage;

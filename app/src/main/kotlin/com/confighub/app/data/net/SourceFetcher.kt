@@ -47,7 +47,7 @@ class SourceFetcher @Inject constructor(
                 client.newCall(request).execute().use { response -> evaluate(response) }
             }
             outcome.getOrElse { throwable ->
-                Failure(SecretMasker.sanitize(throwable.message ?: throwable.javaClass.simpleName))
+                Outcome.Failure(SecretMasker.sanitize(throwable.message ?: throwable.javaClass.simpleName))
             }
         }
 
@@ -71,7 +71,7 @@ class SourceFetcher @Inject constructor(
         if (declaredLength > maxBytes) {
             return Outcome.Failure("payload too large: $declaredLength bytes (cap $maxBytes)")
         }
-        val buffer = ByteArrayOutputStream(minOf(declaredLength, MAX_BUFFER_INIT).coerceAtLeast(0))
+        val buffer = ByteArrayOutputStream(minOf(declaredLength, MAX_BUFFER_INIT.toLong()).coerceAtLeast(0L))
         var total = 0
         body.byteStream().use { input ->
             val chunk = ByteArray(8192)

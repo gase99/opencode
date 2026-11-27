@@ -3,7 +3,7 @@ package com.confighub.app.data.repo
 import com.confighub.app.data.db.AppDatabase
 import com.confighub.app.data.db.ConfigEntity
 import com.confighub.app.data.db.HealthSampleEntity
-import com.confighub.app.data.db.toConfigProfile
+import com.confighub.app.data.repo.toConfigProfile
 import com.confighub.app.data.security.FieldCipher
 import com.confighub.app.data.settings.AppSettings
 import com.confighub.app.data.settings.SettingsRepository

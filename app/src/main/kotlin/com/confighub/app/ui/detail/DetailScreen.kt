@@ -21,9 +21,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
@@ -97,7 +97,7 @@ fun DetailScreen(
                     config?.let { entity ->
                         IconButton(onClick = { viewModel.toggleFavorite(!entity.isFavorite) }) {
                             Icon(
-                                imageVector = if (entity.isFavorite) Icons.Filled.Star else Icons.Filled.StarBorder,
+                                imageVector = if (entity.isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
                                 contentDescription = stringResource(
                                     if (entity.isFavorite) R.string.detail_favorite_remove else R.string.detail_favorite_add,
                                 ),

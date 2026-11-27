@@ -1,9 +1,10 @@
 package com.confighub.app.data.repo
 
+import com.confighub.app.core.model.ConfigProfile
 import com.confighub.app.data.db.AppDatabase
 import com.confighub.app.data.db.ConfigEntity
 import com.confighub.app.data.security.FieldCipher
-import com.confighub.app.data.db.toConfigProfile
+import com.confighub.app.data.repo.toConfigProfile
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
