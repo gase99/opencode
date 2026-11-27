@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">کانفیگ‌هاب</string>
+    <string name="app_tagline">جمع‌آوری • اعتبارسنجی • اتصال</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">خانه</string>
+    <string name="nav_settings">تنظیمات</string>
+    <string name="nav_sources">منابع</string>
+
+    <!-- Home -->
+    <string name="home_title">کانفیگ‌ها</string>
+    <string name="home_search_hint">جستجوی نام، سرور، پروتکل…</string>
+    <string name="home_filter_protocol">پروتکل</string>
+    <string name="home_filter_favorites">علاقه‌مندی‌ها</string>
+    <string name="home_filter_sort">مرتب‌سازی</string>
+    <string name="home_filter_latency">حداکثر تأخیر</string>
+    <string name="sort_score">امتیاز</string>
+    <string name="sort_latency">تأخیر</string>
+    <string name="sort_recent">جدیدترین</string>
+    <string name="home_empty_title">هنوز کانفیگی نیست</string>
+    <string name="home_empty_body">یک منبع عمومی در «تنظیمات ← منابع» اضافه کنید و سپس صفحه را برای به‌روزرسانی پایین بکشید.</string>
+    <string name="home_refreshing">در حال به‌روزرسانی منابع…</string>
+    <string name="home_not_tested">تست‌نشده</string>
+    <string name="home_test_now">همین حالا تست کن</string>
+    <string name="home_testing">در حال تست…</string>
+    <string name="home_measured_label">اندازه‌گیری‌شده روی شبکه‌ی فعلی</string>
+    <string name="home_operator_unknown">اپراتور نامشخص</string>
+    <string name="home_error_prefix">به‌روزرسانی ناموفق</string>
+    <string name="latency_ms">%1$d میلی‌ثانیه</string>
+    <string name="latency_band_good">خوب</string>
+    <string name="latency_band_acceptable">قابل‌قبول</string>
+    <string name="latency_band_poor">ضعیف</string>
+    <string name="latency_any">بدون محدودیت</string>
+
+    <!-- Detail -->
+    <string name="detail_title">جزئیات کانفیگ</string>
+    <string name="detail_protocol">پروتکل</string>
+    <string name="detail_host">سرور</string>
+    <string name="detail_port">پورت</string>
+    <string name="detail_network">حمل‌کننده</string>
+    <string name="detail_tls">حالت TLS</string>
+    <string name="detail_sni">SNI</string>
+    <string name="detail_name">نام/توضیح</string>
+    <string name="detail_source">منبع</string>
+    <string name="detail_secret_masked">اعتبارنامه: 🔒 پنهان (هرگز نمایش داده نمی‌شود)</string>
+    <string name="detail_secret_note">اسرار روی دستگاه رمزنگاری می‌شوند و از لاگ‌ها و خروجی عیب‌یابی حذف می‌شوند.</string>
+    <string name="detail_score_title">امتیاز</string>
+    <string name="detail_score_explanation">تفکیک امتیاز</string>
+    <string name="detail_history_title">تاریخچه‌ی سلامت</string>
+    <string name="detail_history_empty">هنوز اندازه‌گیری نیست — «همین حالا تست کن» را بزنید.</string>
+    <string name="detail_favorite_add">افزودن به علاقه‌مندی‌ها</string>
+    <string name="detail_favorite_remove">حذف از علاقه‌مندی‌ها</string>
+    <string name="detail_alpn">ALPN</string>
+    <string name="detail_fingerprint">اثر انگشت TLS</string>
+    <string name="detail_plugin">پلاگین</string>
+    <string name="detail_first_seen">اولین مشاهده</string>
+    <string name="detail_last_seen">آخرین مشاهده</string>
+    <string name="detail_not_found">کانفیگ یافت نشد.</string>
+    <string name="detail_tls_probed">دست‌دادن TLS اندازه‌گیری شد</string>
+    <string name="detail_tls_skipped">TLS اندازه‌گیری نشد (REALITY)</string>
+
+    <!-- Score components -->
+    <string name="score_latency">تأخیر</string>
+    <string name="score_jitter">لرزش (Jitter)</string>
+    <string name="score_failure">پایداری</string>
+    <string name="score_recency">تازگی</string>
+    <string name="score_protocol">پروتکل</string>
+
+    <!-- Settings -->
+    <string name="settings_title">تنظیمات</string>
+    <string name="settings_section_refresh">به‌روزرسانی پس‌زمینه</string>
+    <string name="settings_refresh_interval">فاصله‌ی به‌روزرسانی منابع</string>
+    <string name="settings_health_interval">فاصله‌ی بررسی سلامت</string>
+    <string name="hours_value">%1$d ساعت</string>
+    <string name="settings_section_operator">پروفایل اپراتور</string>
+    <string name="settings_operator_auto">تشخیص خودکار (از سیم‌کارت/شبکه)</string>
+    <string name="settings_operator_note">اپلیکیشن فقط می‌تواند تأخیر را روی شبکه‌ای که گوشی همین حالا به آن وصل است اندازه بگیرد. نتایج با برچسب «اندازه‌گیری‌شده روی شبکه‌ی فعلی» نمایش داده می‌شوند. پروفایل‌های اپراتور فقط آستانه‌ها و وزن‌های رتبه‌بندی را تنظیم می‌کنند — هرگز داده‌ی ساختنی تولید نمی‌کنند.</string>
+    <string name="settings_section_scoring">وزن‌های امتیازدهی</string>
+    <string name="settings_weight_latency">وزن تأخیر</string>
+    <string name="settings_weight_jitter">وزن لرزش</string>
+    <string name="settings_weight_failure">وزن پایداری</string>
+    <string name="settings_weight_recency">وزن تازگی</string>
+    <string name="settings_weight_protocol">وزن پروتکل</string>
+    <string name="settings_section_privacy">حریم خصوصی و سیاست‌ها</string>
+    <string name="settings_allow_experimental">اجازه‌ی پروتکل‌های آزمایشی (Hysteria2/TUIC)</string>
+    <string name="settings_allow_experimental_desc">به‌صورت پیش‌فرض خاموش است: این پروتکل‌ها جدیدتر و کمتر ممیزی‌شده‌اند.</string>
+    <string name="settings_allow_http">اجازه‌ی منابع http ساده</string>
+    <string name="settings_allow_http_desc">به‌صورت پیش‌فرض خاموش است: http ساده محتوای اشتراک را روی شبکه آشکار می‌کند.</string>
+    <string name="settings_keep_history">نگه‌داری تاریخچه‌ی سلامت (روز)</string>
+    <string name="days_value">%1$d روز</string>
+    <string name="settings_max_configs">حداکثر کانفیگ برای هر منبع</string>
+    <string name="settings_section_diagnostics">عیب‌یابی</string>
+    <string name="settings_export_diagnostics">خروجی عیب‌یابی (با حذف اسرار)</string>
+    <string name="settings_export_redaction_note">اسرار همیشه حذف می‌شوند؛ آدرس منابع فقط تا «دامنه + مسیر امن» نشان داده می‌شود.</string>
+    <string name="diag_export_success">گزارش عیب‌یابی ذخیره شد — از پنجره‌ی اشتراک‌گذاری ارسال کنید.</string>
+    <string name="diag_export_failed">نوشتن فایل عیب‌یابی ناموفق بود.</string>
+    <string name="settings_section_about">درباره</string>
+    <string name="settings_version">نسخه‌ی %1$s</string>
+    <string name="settings_insecure_storage_warning">⚠ رمزنگاری روی این دستگاه در دسترس نیست — داده‌ها رمزنگاری‌شده ذخیره نمی‌شوند.</string>
+    <string name="settings_vpn_note">اتصال همیشه با اقدام شما آغاز می‌شود، پنجره‌ی مجوز استاندارد اندروید را نشان می‌دهد و هرگز بعد از روشن‌شدن گوشی خودکار اجرا نمی‌شود.</string>
+
+    <!-- Sources -->
+    <string name="sources_title">فهرست منابع</string>
+    <string name="sources_add">افزودن منبع</string>
+    <string name="sources_add_title">افزودن منبع عمومی</string>
+    <string name="sources_name">نام</string>
+    <string name="sources_url">آدرس (https)</string>
+    <string name="sources_type">نوع</string>
+    <string name="sources_license_note">یادداشت لایسنس/شرایط</string>
+    <string name="sources_license_hint">لایسنس یا شرایط منبع را اینجا ثبت کنید — بنگرید docs/SOURCES_POLICY.md.</string>
+    <string name="sources_interval">فاصله‌ی به‌روزرسانی (ساعت)</string>
+    <string name="sources_save">ذخیره</string>
+    <string name="sources_cancel">انصراف</string>
+    <string name="sources_delete_confirm">این منبع و کانفیگ‌های ذخیره‌شده‌اش حذف شود؟</string>
+    <string name="sources_empty_title">هنوز منبعی نیست</string>
+    <string name="sources_empty_body">یک منبع عمومی مشروع اضافه کنید یا نمونه‌های جای‌دار را برای آزمایش جریان وارد کنید.</string>
+    <string name="sources_import_samples">ورود نمونه‌های جای‌دار</string>
+    <string name="sources_status_ok">موفق · %1$d مورد</string>
+    <string name="sources_status_not_modified">بدون تغییر</string>
+    <string name="sources_status_never">هرگز دریافت نشده</string>
+    <string name="sources_status_skipped">رد شد (سیاست)</string>
+    <string name="sources_status_error">خطا</string>
+    <string name="sources_policy_note">فقط منابع عمومی، مشروع و در دسترس عموم که دسترسی خودکار را مجاز می‌دانند اضافه کنید. هرگز گروه‌ها یا حساب‌های خصوصی، محتوای پولی، یا منابعی که چنین دسترسی را ممنوع می‌کنند اضافه نکنید.</string>
+    <string name="source_type_github_raw">فایل خام گیت‌هاب</string>
+    <string name="source_type_subscription">آدرس اشتراک</string>
+    <string name="source_type_json_api">API جیسون</string>
+    <string name="source_type_custom">سفارشی</string>
+
+    <!-- VPN / connection -->
+    <string name="vpn_connect">اتصال</string>
+    <string name="vpn_disconnect">قطع اتصال</string>
+    <string name="vpn_state_idle">قطع</string>
+    <string name="vpn_state_connecting">در حال اتصال…</string>
+    <string name="vpn_state_connected">متصل · %1$s</string>
+    <string name="vpn_state_disconnecting">در حال قطع…</string>
+    <string name="vpn_state_failed">ناموفق</string>
+    <string name="vpn_consent_required">برای ادامه، پنجره‌ی مجوز VPN اندروید را تأیید کنید.</string>
+    <string name="vpn_mock_core_note">نسخه‌ی نمونه: هسته‌ی پراکسی هنوز یکپارچه نشده — بنگرید docs/CORE_INTEGRATION.md. هیچ تونلی باز نمی‌شود.</string>
+    <string name="vpn_notification_channel_name">نشست VPN</string>
+    <string name="vpn_notification_title">نشست VPN</string>
+    <string name="vpn_notification_disconnect">قطع اتصال</string>
+
+    <!-- Common -->
+    <string name="common_cancel">انصراف</string>
+    <string name="common_save">ذخیره</string>
+    <string name="common_delete">حذف</string>
+    <string name="common_ok">باشه</string>
+    <string name="common_retry">تلاش دوباره</string>
+    <string name="common_loading">در حال بارگذاری…</string>
+    <string name="time_just_now">همین حالا</string>
+    <string name="time_minutes_ago">%1$d دقیقه پیش</string>
+    <string name="time_hours_ago">%1$d ساعت پیش</string>
+    <string name="time_days_ago">%1$d روز پیش</string>
+    <string name="time_never">هرگز</string>
+</resources>
