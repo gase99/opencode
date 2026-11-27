@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, lint & unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build, lint and run unit tests
+        run: |
+          set -o pipefail
+          ./gradlew --stacktrace assembleDebug testDebugUnitTest lintDebug 2>&1 | tee build-output.txt
+
+      # Keep diagnosable even where full CI logs are hard to fetch:
+      # surface the relevant gradle error lines as check-run annotations.
+      - name: Surface failures as annotations
+        if: failure()
+        run: |
+          if [ -f build-output.txt ]; then
+            grep -nE "(^e: |error:|FAILURE:|Caused by:|What went wrong|Execution failed for task|> Task .* FAILED| FAILED$|[0-9]+ tests? completed)" build-output.txt | head -40 | while IFS= read -r line; do
+              echo "::error::${line:0:400}"
+            done
+          else
+            echo "::error::gradle produced no output file (early failure)"
+          fi
+
+      # Emit one annotation per failing unit test with its assertion message.
+      - name: Report failing tests in detail
+        if: failure()
+        run: |
+          python3 - <<'EOF'
+          import glob, xml.etree.ElementTree as ET
+          paths = glob.glob('app/build/test-results/testDebugUnitTest/*.xml')
+          if not paths:
+              print("::error::no unit-test result XML found")
+          for path in paths:
+              try:
+                  root = ET.parse(path).getroot()
+              except Exception:
+                  continue
+              for case in root.iter('testcase'):
+                  for failure in list(case.findall('failure')) + list(case.findall('error')):
+                      name = f"{case.get('classname')}.{case.get('name')}"
+                      msg = (failure.get('message') or failure.text or 'no message').strip()
+                      first = msg.splitlines()[0][:350] if msg else 'no message'
+                      print(f"::error::{name} :: {first}")
+          EOF
+
+      - name: Upload test & lint reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-${{ github.run_id }}
+          path: app/build/reports/
+          if-no-files-found: ignore
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: confighub-debug-apk-${{ github.run_id }}
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error

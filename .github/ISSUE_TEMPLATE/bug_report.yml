@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a problem with ConfigHub
+labels: [ "bug" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug.
+        Please do **not** paste real config secrets (UUIDs, passwords, keys) into this report.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Steps to reproduce, expected behavior, actual behavior. Redact secrets.
+      placeholder: A clear and concise description with redacted logs if applicable.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Source fetching (Source Registry)
+        - Parsing / validation
+        - Health checks & scoring
+        - Ranking / operator profiles
+        - UI (Home / Details / Settings)
+        - VPN / connection engine
+        - Privacy / security
+        - Build / CI
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version / build
+      placeholder: e.g. 0.1.0 debug build from CI
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I redacted all config secrets from logs and screenshots.
+          required: true

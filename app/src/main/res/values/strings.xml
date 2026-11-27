@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConfigHub</string>
+    <string name="app_tagline">Aggregate • Validate • Connect</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_sources">Sources</string>
+
+    <!-- Home -->
+    <string name="home_title">Configs</string>
+    <string name="home_search_hint">Search name, host, protocol…</string>
+    <string name="home_filter_protocol">Protocol</string>
+    <string name="home_filter_favorites">Favorites</string>
+    <string name="home_filter_sort">Sort</string>
+    <string name="home_filter_latency">Max latency</string>
+    <string name="sort_score">Score</string>
+    <string name="sort_latency">Latency</string>
+    <string name="sort_recent">Recent</string>
+    <string name="home_empty_title">No configs yet</string>
+    <string name="home_empty_body">Add a public source in Settings → Sources, then pull to refresh.</string>
+    <string name="home_refreshing">Refreshing sources…</string>
+    <string name="home_not_tested">Not tested</string>
+    <string name="home_test_now">Test now</string>
+    <string name="home_testing">Testing…</string>
+    <string name="home_measured_label">measured on current network</string>
+    <string name="home_operator_unknown">unknown operator</string>
+    <string name="home_error_prefix">Refresh failed</string>
+    <string name="latency_ms">%1$d ms</string>
+    <string name="latency_band_good">good</string>
+    <string name="latency_band_acceptable">acceptable</string>
+    <string name="latency_band_poor">poor</string>
+    <string name="latency_any">any</string>
+
+    <!-- Detail -->
+    <string name="detail_title">Config details</string>
+    <string name="detail_protocol">Protocol</string>
+    <string name="detail_host">Server</string>
+    <string name="detail_port">Port</string>
+    <string name="detail_network">Transport</string>
+    <string name="detail_tls">TLS mode</string>
+    <string name="detail_sni">SNI</string>
+    <string name="detail_name">Remark</string>
+    <string name="detail_source">Source</string>
+    <string name="detail_secret_masked">Credential: 🔒 hidden (never displayed)</string>
+    <string name="detail_secret_note">Secrets are encrypted at rest and excluded from logs &amp; diagnostics.</string>
+    <string name="detail_score_title">Score</string>
+    <string name="detail_score_explanation">Score breakdown</string>
+    <string name="detail_history_title">Health history</string>
+    <string name="detail_history_empty">No measurements yet — run “Test now”.</string>
+    <string name="detail_favorite_add">Add to favorites</string>
+    <string name="detail_favorite_remove">Remove from favorites</string>
+    <string name="detail_alpn">ALPN</string>
+    <string name="detail_fingerprint">Fingerprint</string>
+    <string name="detail_plugin">Plugin</string>
+    <string name="detail_first_seen">First seen</string>
+    <string name="detail_last_seen">Last seen</string>
+    <string name="detail_not_found">Config not found.</string>
+    <string name="detail_tls_probed">TLS probed</string>
+    <string name="detail_tls_skipped">TLS not probed (REALITY)</string>
+
+    <!-- Score components -->
+    <string name="score_latency">Latency</string>
+    <string name="score_jitter">Jitter</string>
+    <string name="score_failure">Reliability</string>
+    <string name="score_recency">Recency</string>
+    <string name="score_protocol">Protocol</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_refresh">Background refresh</string>
+    <string name="settings_refresh_interval">Source refresh interval</string>
+    <string name="settings_health_interval">Health check interval</string>
+    <string name="hours_value">%1$d h</string>
+    <string name="settings_section_operator">Operator profile</string>
+    <string name="settings_operator_auto">Auto-detect (from SIM/network)</string>
+    <string name="settings_operator_note">The app can only measure latency on the network the phone is currently on. Results are labeled “measured on current network”. Operator profiles only adjust thresholds and ranking weights — they never fabricate measurements.</string>
+    <string name="settings_section_scoring">Scoring weights</string>
+    <string name="settings_weight_latency">Latency weight</string>
+    <string name="settings_weight_jitter">Jitter weight</string>
+    <string name="settings_weight_failure">Reliability weight</string>
+    <string name="settings_weight_recency">Recency weight</string>
+    <string name="settings_weight_protocol">Protocol weight</string>
+    <string name="settings_section_privacy">Privacy &amp; policy</string>
+    <string name="settings_allow_experimental">Allow experimental protocols (Hysteria2/TUIC)</string>
+    <string name="settings_allow_experimental_desc">Off by default: these protocols are newer and less audited.</string>
+    <string name="settings_allow_http">Allow plain http:// sources</string>
+    <string name="settings_allow_http_desc">Off by default: plain http exposes subscription contents on the wire.</string>
+    <string name="settings_keep_history">Keep health history (days)</string>
+    <string name="days_value">%1$d days</string>
+    <string name="settings_max_configs">Max configs per source</string>
+    <string name="settings_section_diagnostics">Diagnostics</string>
+    <string name="settings_export_diagnostics">Export diagnostics (redacted)</string>
+    <string name="settings_export_redaction_note">Secrets are always removed; source URLs are reduced to host + safe path.</string>
+    <string name="diag_export_success">Diagnostics saved — share it from the chooser.</string>
+    <string name="diag_export_failed">Could not write diagnostics file.</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_insecure_storage_warning">⚠ Encryption unavailable on this device — data at rest is NOT encrypted.</string>
+    <string name="settings_vpn_note">Connecting is always user-initiated, shows the standard Android VPN consent dialog, and never auto-starts after boot.</string>
+
+    <!-- Sources -->
+    <string name="sources_title">Source registry</string>
+    <string name="sources_add">Add source</string>
+    <string name="sources_add_title">Add public source</string>
+    <string name="sources_name">Name</string>
+    <string name="sources_url">URL (https)</string>
+    <string name="sources_type">Type</string>
+    <string name="sources_license_note">License / terms note</string>
+    <string name="sources_license_hint">Record the license or terms of the source here — see docs/SOURCES_POLICY.md.</string>
+    <string name="sources_interval">Refresh interval (hours)</string>
+    <string name="sources_save">Save</string>
+    <string name="sources_cancel">Cancel</string>
+    <string name="sources_delete_confirm">Delete this source and its cached configs?</string>
+    <string name="sources_empty_title">No sources yet</string>
+    <string name="sources_empty_body">Add a lawful public source, or import the sample placeholders to explore the flow.</string>
+    <string name="sources_import_samples">Import sample placeholders</string>
+    <string name="sources_status_ok">OK · %1$d items</string>
+    <string name="sources_status_not_modified">Unchanged</string>
+    <string name="sources_status_never">Never fetched</string>
+    <string name="sources_status_skipped">Skipped (policy)</string>
+    <string name="sources_status_error">Error</string>
+    <string name="sources_policy_note">Only public, lawful, publicly accessible sources that permit automated access may be added. Never add private groups, private accounts, paywalled content, or sources that prohibit it.</string>
+    <string name="source_type_github_raw">GitHub raw</string>
+    <string name="source_type_subscription">Subscription URL</string>
+    <string name="source_type_json_api">JSON API</string>
+    <string name="source_type_custom">Custom</string>
+
+    <!-- VPN / connection -->
+    <string name="vpn_connect">Connect</string>
+    <string name="vpn_disconnect">Disconnect</string>
+    <string name="vpn_state_idle">Disconnected</string>
+    <string name="vpn_state_connecting">Connecting…</string>
+    <string name="vpn_state_connected">Connected · %1$s</string>
+    <string name="vpn_state_disconnecting">Disconnecting…</string>
+    <string name="vpn_state_failed">Failed</string>
+    <string name="vpn_consent_required">Please approve the Android VPN permission dialog to continue.</string>
+    <string name="vpn_mock_core_note">Stub build: the proxy core is not integrated yet — see docs/CORE_INTEGRATION.md. No tunnel is opened.</string>
+    <string name="vpn_notification_channel_name">VPN session</string>
+    <string name="vpn_notification_title">VPN session</string>
+    <string name="vpn_notification_disconnect">Disconnect</string>
+
+    <!-- Common -->
+    <string name="common_cancel">Cancel</string>
+    <string name="common_save">Save</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_ok">OK</string>
+    <string name="common_retry">Retry</string>
+    <string name="common_loading">Loading…</string>
+    <string name="time_just_now">just now</string>
+    <string name="time_minutes_ago">%1$d min ago</string>
+    <string name="time_hours_ago">%1$d h ago</string>
+    <string name="time_days_ago">%1$d d ago</string>
+    <string name="time_never">never</string>
+</resources>

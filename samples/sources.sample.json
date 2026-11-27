@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "description": "Sample Source Registry — PLACEHOLDERS ONLY. Replace with lawful public sources you are allowed to use. See docs/SOURCES_POLICY.md before enabling anything.",
+  "sources": [
+    {
+      "name": "SAMPLE — raw text list (replace me)",
+      "url": "https://example.com/replace-with-your-lawful-source.txt",
+      "type": "SUBSCRIPTION_URL",
+      "licenseNote": "Placeholder. Verify the license/terms of any real source before use.",
+      "refreshIntervalHours": 12
+    },
+    {
+      "name": "SAMPLE — your own GitHub raw JSON",
+      "url": "https://raw.githubusercontent.com/your-account/your-repo/main/configs.json",
+      "type": "GITHUB_RAW",
+      "licenseNote": "Placeholder pointing to YOUR own public repository.",
+      "refreshIntervalHours": 6
+    },
+    {
+      "name": "SAMPLE — JSON API",
+      "url": "https://example.com/api/v1/configs",
+      "type": "JSON_API",
+      "licenseNote": "Placeholder. Confirm the API terms allow automated access and respect rate limits.",
+      "refreshIntervalHours": 12
+    }
+  ]
+}

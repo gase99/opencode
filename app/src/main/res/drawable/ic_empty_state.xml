@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Empty-state glyph: an open hub with no nodes connected yet -->
+    <path
+        android:fillColor="#8A94A6"
+        android:pathData="M24,6 L38,11 L38,22 C38,32.6 32.2,40.4 24,44 C15.8,40.4 10,32.6 10,22 L10,11 Z M24,9.6 L13,13.7 L13,22 C13,31 17.7,37.6 24,40.8 C30.3,37.6 35,31 35,22 L35,13.7 Z" />
+    <path
+        android:fillColor="#8A94A6"
+        android:pathData="M24,17 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+    <path
+        android:fillColor="#8A94A6"
+        android:pathData="M21.5,23 L26.5,23 L26.5,29 L21.5,29 Z" />
+</vector>
